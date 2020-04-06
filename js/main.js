@@ -20,8 +20,6 @@ function setup() {
 
 function draw() {
   // draw repeats execution until program is stopped
-  // console.log("draw");
-  //clear();
 
   game.display();
 }
@@ -35,11 +33,16 @@ function keyPressed() {
   let letterSCode = 83;
   */
 
+  /* TO BE IMPLEMENTED:
+  FUNCTION TO CHECK IF strokeAble == true
+  IF NOT -> -POINTS
+  IF YES:*/
+
   game.letterFlow.forEach((letter) => {
     let randomLetterCode = letter.randomLetter.charCodeAt(0);
     //console.log(randomLetterCode);
 
-    if (strokeStatus == true) {
+    if (letter.strokeAble == true) {
       // compare keyboard keycode input to keycode of random letter
       if (keyCode === randomLetterCode) {
         console.log("Haha yes!"); // if true
@@ -47,23 +50,6 @@ function keyPressed() {
       }
     }
   });
-
-  // get keyCode of the randomized letter
-  // let randomLetterCode = game.letterFlow[0].randomLetter.charCodeAt(0);
-
-  // if (strokeStatus == true) {
-  //   // compare keyboard keycode input to keycode of random letter
-  //   if (keyCode === randomLetterCode) {
-  //     console.log("Haha yes!"); // if true
-  //     game.letterFlow[0].gotcha = true;
-  //     game.letterFlow.push(new Letter());
-  //     //console.log(game.letterFlow[0].gotcha);
-  //     // game.letterFlow = game.letterFlow.filter(
-  //     //   (letter) => letter.gotcha == false
-  //     // );
-  //     //game.letterFlow[0].randomLetter = randomizeLetter();
-  //   }
-  // }
 }
 
 /* additional functions */

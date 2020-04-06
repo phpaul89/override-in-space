@@ -1,6 +1,6 @@
 class Strokebar {
   constructor() {
-    this.height = 20;
+    this.height = 40;
     this.width = 200;
     this.x = 100;
     this.y = 600;

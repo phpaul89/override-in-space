@@ -1,18 +1,19 @@
 // pre-set variables
 let fontsize = 32;
-const letterSpace = ["W", "A", "S", "D"];
+const letterSpace = ["Q", "W", "E", "7", "8", "9"];
+const letterRows = [100, 140, 180, 220, 260];
 
 class Letter {
   constructor() {
-    this.height = 30;
-    this.width = 30;
-    //this.x = 100;
-    this.x =
-      Math.floor(Math.random() * strokebar.width) + strokebar.x - this.width;
-    this.y = 100;
-    this.randomLetter = randomizeLetter();
+    this.height = 40;
+    this.width = 40;
+    this.x = letterRows[Math.floor(Math.random() * letterRows.length)];
+    this.y = Math.floor(Math.random() * 100);
+    this.randomLetter =
+      letterSpace[Math.floor(Math.random() * letterSpace.length)];
     this.gotcha = false;
     this.lose = false;
+    this.strokeAble = strokebar.checkCollision(this);
   }
 
   display() {
@@ -20,11 +21,17 @@ class Letter {
     // PARAMETERS: actual position of letter in relation to strokebar
     // remove letter, if it does not got stroked in time
     if (this.y > strokebar.y + strokebar.height + 40) {
-      this.lose = true;
-      game.letterFlow.push(new Letter());
+      if (game.letterFlow.length < 10) {
+        this.lose = true;
+        game.letterFlow.push(new Letter());
+      } else {
+        this.lose = true;
+      }
     }
 
-    this.y++;
+    //console.log(this.strokeAble);
+
+    this.y += 2;
     //console.log(this.lose);
 
     //textFont("Arial");
@@ -38,6 +45,6 @@ class Letter {
 }
 
 /* additional functions */
-function randomizeLetter() {
+/*function randomizeLetter() {
   return letterSpace[Math.floor(Math.random() * letterSpace.length)];
-}
+}*/

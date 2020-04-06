@@ -8,7 +8,7 @@ const strokebar = new Strokebar();
 class Game {
   constructor() {
     this.letterFlow = [new Letter()];
-    this.randomFrameCount = Math.floor(Math.random() * 600) + 30;
+    this.randomFrameCount = Math.floor(Math.random() * 200) + 30;
   }
 
   //   init() {
@@ -21,8 +21,12 @@ class Game {
 
   display() {
     background(0); // sets background to black only
+    //console.log(this.letterFlow.length);
 
-    if (frameCount % this.randomFrameCount === 0) {
+    if (
+      frameCount % this.randomFrameCount === 0 &&
+      game.letterFlow.length < 10
+    ) {
       this.letterFlow.push(new Letter());
     }
 
@@ -37,12 +41,12 @@ class Game {
     this.letterFlow.forEach((letter) => {
       if (strokebar.checkCollision(letter)) {
         //console.log("Now!");
-        strokeStatus = true;
+        letter.strokeAble = true;
       } else {
-        strokeStatus = false;
+        letter.strokeAble = false;
       }
 
-      if (strokeStatus == true) {
+      if (letter.strokeAble == true) {
         console.log("Press the button now!");
       }
     });
@@ -52,3 +56,5 @@ class Game {
     );
   }
 }
+
+/* additional functions */
