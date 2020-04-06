@@ -1,14 +1,10 @@
 // pre-set variables
-const letters = new Letters();
-const strokebar = new Strokebar();
+const game = new Game();
 let strokeStatus = false;
-const letterSpace = ["W", "A", "S", "D"];
-let randomLetter = letterSpace[Math.floor(Math.random() * letterSpace.length)];
 
 //
 function preload() {
   console.log("preload");
-  //font = loadFont("assets/SourceSansPro-Regular.otf");
 }
 
 function setup() {
@@ -17,34 +13,17 @@ function setup() {
 
   console.log("setup");
 
-  console.log(randomLetter);
+  //console.log(randomLetter);
+
   createCanvas(800, 800);
 }
 
 function draw() {
   // draw repeats execution until program is stopped
-  //console.log("draw");
-  clear();
+  // console.log("draw");
+  //clear();
 
-  background(0); // sets background to black only
-
-  letters.display();
-  strokebar.display();
-
-  //console.log(randomLetter);
-  //console.log(letters.y); // outputs the y coordinates
-  //console.log(letters.height);
-
-  if (strokebar.checkCollision(letters)) {
-    //console.log("Now!");
-    strokeStatus = true;
-  } else {
-    strokeStatus = false;
-  }
-
-  if (strokeStatus == true) {
-    console.log("Press the button now!");
-  }
+  game.display();
 }
 
 function keyPressed() {
@@ -56,17 +35,35 @@ function keyPressed() {
   let letterSCode = 83;
   */
 
-  // get keyCode of the randomized letter
-  let randomLetterCode = randomLetter.charCodeAt(0);
+  game.letterFlow.forEach((letter) => {
+    let randomLetterCode = letter.randomLetter.charCodeAt(0);
+    //console.log(randomLetterCode);
 
-  if (strokeStatus == true) {
-    // compare keyboard keycode input to keycode of random letter
-    if (keyCode === randomLetterCode) {
-      console.log("Haha yes!"); // if true
+    if (strokeStatus == true) {
+      // compare keyboard keycode input to keycode of random letter
+      if (keyCode === randomLetterCode) {
+        console.log("Haha yes!"); // if true
+        letter.gotcha = true;
+      }
     }
-    /*
-    if (keyCode === spaceBarCode) {
-      console.log("Haha yes!");
-    }*/
-  }
+  });
+
+  // get keyCode of the randomized letter
+  // let randomLetterCode = game.letterFlow[0].randomLetter.charCodeAt(0);
+
+  // if (strokeStatus == true) {
+  //   // compare keyboard keycode input to keycode of random letter
+  //   if (keyCode === randomLetterCode) {
+  //     console.log("Haha yes!"); // if true
+  //     game.letterFlow[0].gotcha = true;
+  //     game.letterFlow.push(new Letter());
+  //     //console.log(game.letterFlow[0].gotcha);
+  //     // game.letterFlow = game.letterFlow.filter(
+  //     //   (letter) => letter.gotcha == false
+  //     // );
+  //     //game.letterFlow[0].randomLetter = randomizeLetter();
+  //   }
+  // }
 }
+
+/* additional functions */

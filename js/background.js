@@ -1,7 +1,6 @@
-/*
-class Background {
-    constructor(){
-        this.img = loadImage("..");
-    }
-}
-*/
+// class Background {
+//     constructor(){
+//         //this.img = loadImage("..");
+//         background(0);
+//     }
+// }

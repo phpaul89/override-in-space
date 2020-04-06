@@ -1,16 +1,16 @@
 class Strokebar {
   constructor() {
-    this.height = 100;
-    this.width = 100;
+    this.height = 20;
+    this.width = 200;
     this.x = 100;
     this.y = 600;
   }
 
-  checkCollision(letters) {
+  checkCollision(letter) {
     let topEdgeBar = this.y;
     let bottomEdgeBar = this.y + this.height;
 
-    let letterTop = letters.y;
+    let letterTop = letter.y;
     //let letterBottom = letters.y + letters.height;
 
     //console.log(topEdgeBar);
@@ -24,7 +24,9 @@ class Strokebar {
   }
 
   display() {
-    fill("green");
+    let barColor = color("green");
+    barColor.setAlpha(150);
+    fill(barColor);
     rect(this.x, this.y, this.width, this.height);
   }
 }
