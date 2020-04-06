@@ -2,14 +2,58 @@ class Beam {
   constructor() {
     this.x = player.x;
     this.y = player.y;
-    this.height = 15;
-    this.width = 4;
+    this.direction = player.direction;
+    this.radius = 5;
   }
 
   display() {
     //console.log("pew");
-    this.y += 5;
-    fill("yellow");
-    rect(this.x, this.y, this.height, this.width);
+
+    switch (this.direction) {
+      case "U":
+        this.y -= 5;
+        fill("yellow");
+        circle(this.x, this.y, this.radius);
+        break;
+      case "D":
+        this.y += 5;
+        fill("yellow");
+        circle(this.x, this.y, this.radius);
+        break;
+      case "L":
+        this.x -= 5;
+        fill("yellow");
+        circle(this.x, this.y, this.radius);
+        break;
+      case "R":
+        this.x += 5;
+        fill("yellow");
+        circle(this.x, this.y, this.radius);
+        break;
+      case "UL":
+        this.x -= 5;
+        this.y -= 5;
+        fill("yellow");
+        circle(this.x, this.y, this.radius);
+        break;
+      case "UR":
+        this.x += 5;
+        this.y -= 5;
+        fill("yellow");
+        circle(this.x, this.y, this.radius);
+        break;
+      case "DL":
+        this.x -= 5;
+        this.y += 5;
+        fill("yellow");
+        circle(this.x, this.y, this.radius);
+        break;
+      case "DR":
+        this.x += 5;
+        this.y += 5;
+        fill("yellow");
+        circle(this.x, this.y, this.radius);
+        break;
+    }
   }
 }

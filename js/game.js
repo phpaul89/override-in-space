@@ -62,37 +62,46 @@ class Game {
     if (keyIsDown(UP_ARROW)) {
       player.y -= 3;
       player.img = player.imgUp;
+      player.direction = "U";
     }
 
     if (keyIsDown(DOWN_ARROW)) {
       player.y += 3;
       player.img = player.imgDown;
+      player.direction = "D";
     }
 
     if (keyIsDown(LEFT_ARROW)) {
       player.x -= 3;
       player.img = player.imgLeft;
+      player.direction = "L";
     }
 
     if (keyIsDown(RIGHT_ARROW)) {
       player.x += 3;
       player.img = player.imgRight;
+      player.direction = "R";
     }
 
+    // beam UL doesnt work when in motion
     if (keyIsDown(UP_ARROW) && keyIsDown(LEFT_ARROW)) {
       player.img = player.imgUpLeft;
+      player.direction = "UL";
     }
 
     if (keyIsDown(UP_ARROW) && keyIsDown(RIGHT_ARROW)) {
       player.img = player.imgUpRight;
+      player.direction = "UR";
     }
 
     if (keyIsDown(DOWN_ARROW) && keyIsDown(LEFT_ARROW)) {
       player.img = player.imgDownLeft;
+      player.direction = "DL";
     }
 
     if (keyIsDown(DOWN_ARROW) && keyIsDown(RIGHT_ARROW)) {
       player.img = player.imgDownRight;
+      player.direction = "DR";
     }
   }
 }

@@ -6,6 +6,7 @@ class Player {
     this.y = 400;
     this.heigth = 30;
     this.width = 30;
+    this.direction = "N";
     this.img;
     this.imgUp;
     this.imgDown;
