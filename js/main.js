@@ -1,6 +1,6 @@
 // pre-set variables
 const game = new Game();
-let strokeStatus = false;
+let strokeStatus = true;
 
 //
 function preload() {
