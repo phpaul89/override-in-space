@@ -53,22 +53,22 @@ class Game {
     );
 
     if (keyIsDown(UP_ARROW)) {
-      player.y -= 5;
+      player.y -= 3;
       player.img = player.imgUp;
     }
 
     if (keyIsDown(DOWN_ARROW)) {
-      player.y += 5;
+      player.y += 3;
       player.img = player.imgDown;
     }
 
     if (keyIsDown(LEFT_ARROW)) {
-      player.x -= 5;
+      player.x -= 3;
       player.img = player.imgLeft;
     }
 
     if (keyIsDown(RIGHT_ARROW)) {
-      player.x += 5;
+      player.x += 3;
       player.img = player.imgRight;
     }
 
