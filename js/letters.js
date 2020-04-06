@@ -25,6 +25,6 @@ class Letters {
 
     // Draw the letter to the screen
     fill("red");
-    text("A", 100, this.y);
+    text(randomLetter, 100, this.y);
   }
 }
