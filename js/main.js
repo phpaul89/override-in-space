@@ -42,6 +42,11 @@ function keyPressed() {
   let letterSCode = 83;
   */
 
+  if (keyCode === 32) {
+    //console.log("test");
+    player.shoot();
+  }
+
   /* TO BE IMPLEMENTED:
   FUNCTION TO CHECK IF strokeAble == true
   IF NOT -> -POINTS

@@ -1,6 +1,6 @@
 // pre-set variables
 let fontsize = 32;
-const letterSpace = ["Q", "W", "E", "7", "8", "9"];
+const letterSpace = ["Q", "W", "E", "7", "8", "9", "C"];
 const letterRows = [100, 140, 180, 220, 260];
 
 class Letter {

@@ -1,5 +1,6 @@
 // pre-set variables
 //const letter1 = new Letter();
+
 //const letter2 = new Letter();
 const strokebar = new Strokebar();
 const player = new Player();
@@ -10,6 +11,7 @@ class Game {
   constructor() {
     this.letterFlow = [new Letter()];
     this.randomFrameCount = Math.floor(Math.random() * 200) + 30;
+    this.beams = [];
   }
 
   //   init() {
@@ -18,7 +20,6 @@ class Game {
 
   display() {
     background(0); // sets background to black only
-    angleMode(DEGREES); // for player rotation
 
     player.display();
 
@@ -32,6 +33,12 @@ class Game {
     this.letterFlow.forEach((letter) => {
       letter.display();
     });
+
+    if (this.beams.length > 0) {
+      this.beams.forEach((beam) => {
+        beam.display();
+      });
+    }
 
     strokebar.display();
 

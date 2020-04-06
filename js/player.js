@@ -1,3 +1,5 @@
+//pre-set variables
+
 class Player {
   constructor() {
     this.x = 400;
@@ -17,5 +19,11 @@ class Player {
 
   display() {
     image(this.img, this.x, this.y, this.heigth, this.width);
+  }
+
+  shoot() {
+    let beam = new Beam();
+    game.beams.push(new Beam());
+    beam.display();
   }
 }
