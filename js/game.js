@@ -2,6 +2,7 @@
 //const letter1 = new Letter();
 //const letter2 = new Letter();
 const strokebar = new Strokebar();
+const player = new Player();
 
 //
 
@@ -15,13 +16,11 @@ class Game {
   //     this.background = new Background();
   //   }
 
-  //   setup() {
-
-  //     }
-
   display() {
     background(0); // sets background to black only
-    //console.log(this.letterFlow.length);
+    angleMode(DEGREES); // for player rotation
+
+    player.display();
 
     if (
       frameCount % this.randomFrameCount === 0 &&
@@ -34,8 +33,6 @@ class Game {
       letter.display();
     });
 
-    //this.letterFlow[0].display();
-    //letter2.display();
     strokebar.display();
 
     this.letterFlow.forEach((letter) => {
@@ -54,6 +51,42 @@ class Game {
     game.letterFlow = game.letterFlow.filter(
       (letter) => letter.gotcha == false && letter.lose == false
     );
+
+    if (keyIsDown(UP_ARROW)) {
+      player.y -= 5;
+      player.img = player.imgUp;
+    }
+
+    if (keyIsDown(DOWN_ARROW)) {
+      player.y += 5;
+      player.img = player.imgDown;
+    }
+
+    if (keyIsDown(LEFT_ARROW)) {
+      player.x -= 5;
+      player.img = player.imgLeft;
+    }
+
+    if (keyIsDown(RIGHT_ARROW)) {
+      player.x += 5;
+      player.img = player.imgRight;
+    }
+
+    if (keyIsDown(UP_ARROW) && keyIsDown(LEFT_ARROW)) {
+      player.img = player.imgUpLeft;
+    }
+
+    if (keyIsDown(UP_ARROW) && keyIsDown(RIGHT_ARROW)) {
+      player.img = player.imgUpRight;
+    }
+
+    if (keyIsDown(DOWN_ARROW) && keyIsDown(LEFT_ARROW)) {
+      player.img = player.imgDownLeft;
+    }
+
+    if (keyIsDown(DOWN_ARROW) && keyIsDown(RIGHT_ARROW)) {
+      player.img = player.imgDownRight;
+    }
   }
 }
 

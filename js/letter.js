@@ -45,6 +45,3 @@ class Letter {
 }
 
 /* additional functions */
-/*function randomizeLetter() {
-  return letterSpace[Math.floor(Math.random() * letterSpace.length)];
-}*/
