@@ -1,7 +1,4 @@
 // pre-set variables
-//const letter1 = new Letter();
-
-//const letter2 = new Letter();
 const strokebar = new Strokebar();
 const player = new Player();
 const asteroid = new Asteroid();

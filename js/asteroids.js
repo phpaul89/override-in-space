@@ -1,5 +1,5 @@
 //pre-set
-const speed = [1, 2, 3];
+const speed = [0.1, 1, 2, 3];
 const size = [30, 60, 90, 120];
 
 //
