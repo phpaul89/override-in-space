@@ -20,6 +20,7 @@ class Letter {
     // Moving the 'Letter' to the bottom, reset to top when bottom is reached
     // PARAMETERS: actual position of letter in relation to strokebar
     // remove letter, if it does not got stroked in time
+    // letterflow input 2/2, check game.js for 1/2
     if (this.y > strokebar.y + strokebar.height + 40) {
       if (game.letterFlow.length < 10) {
         this.lose = true;
@@ -29,17 +30,12 @@ class Letter {
       }
     }
 
-    //console.log(this.strokeAble);
-
+    // movement speed of letter
     this.y += 2;
-    //console.log(this.lose);
-
-    //textFont("Arial");
-    textSize(fontsize);
-    //textAlign(CENTER, CENTER);
 
     // Draw the letter to the screen
     fill("red");
+    textSize(fontsize);
     text(this.randomLetter, this.x, this.y);
   }
 }

@@ -9,16 +9,8 @@ class Strokebar {
   checkCollision(letter) {
     let topEdgeBar = this.y;
     let bottomEdgeBar = this.y + this.height;
-
     let letterTop = letter.y;
-    //let letterBottom = letters.y + letters.height;
-
-    //console.log(topEdgeBar);
-    //console.log(bottomEdgeBar);
-    //console.log(letterTop);
-
     let yCollision = topEdgeBar < letterTop && bottomEdgeBar > letterTop;
-    //console.log(yCollision);
 
     return yCollision;
   }
