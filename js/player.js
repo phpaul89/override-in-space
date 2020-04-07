@@ -21,7 +21,7 @@ class Player {
   }
 
   display() {
-    image(this.img, this.x, this.y, this.height, this.width);
+    image(this.img, this.x, this.y, this.width, this.height);
   }
 
   shoot() {

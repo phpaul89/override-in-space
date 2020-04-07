@@ -3,6 +3,7 @@ const strokebar = new Strokebar();
 const player = new Player();
 const asteroid = new Asteroid();
 const uInterface = new UInterface();
+const background = new Background();
 let gameSwitch = true;
 
 //
@@ -15,14 +16,15 @@ class Game {
     this.asteroids = [new Asteroid(), new Asteroid()];
   }
 
-  //   init() {
-  //     this.background = new Background();
-  //   }
+  // init() {
+  //   this.background = new Background();
+  // }
 
   display() {
     if (gameSwitch == true) {
       // layer: background
-      background(0); // sets background to black only
+      //background(0); // sets background to black only
+      background.displayShooter();
 
       // layer: player, beams, asteroids, enemies
       player.display();

@@ -15,6 +15,12 @@ function preload() {
   player.imgDownLeft = loadImage("../img/spaceship_downleft.png");
   player.imgDownRight = loadImage("../img/spaceship_downright.png");
   player.img = player.imgUp;
+  asteroid.img = loadImage("../img/asteroid.png");
+  background.imgs = [
+    { src: loadImage("../img/nebula_pink.png"), y: 0, speed: 0 },
+    { src: loadImage("../img/stars_big_1.png"), y: 0, speed: 0.5 },
+    { src: loadImage("../img/stars_small1.png"), y: 0, speed: 1 },
+  ];
 }
 
 function setup() {

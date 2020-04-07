@@ -71,8 +71,9 @@ class Asteroid {
 
     //console.log(this.points);
 
-    fill("grey");
-    rect(this.x, this.y, this.width, this.height);
+    // fill("grey");
+    // rect(this.x, this.y, this.width, this.height);
+    image(asteroid.img, this.x, this.y, this.width, this.height);
   }
 }
 
