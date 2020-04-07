@@ -23,6 +23,7 @@ class Asteroid {
     );
     this.points = this.health;
     this.boom = false;
+    this.angle = 0.0;
   }
 
   checkCollision(beam) {
@@ -73,6 +74,7 @@ class Asteroid {
 
     // fill("grey");
     // rect(this.x, this.y, this.width, this.height);
+
     image(asteroid.img, this.x, this.y, this.width, this.height);
   }
 }

@@ -1,7 +1,7 @@
 // pre-set variables
 let fontsize = 32;
 const letterSpace = ["Q", "W", "E", "7", "8", "9", "C"];
-const letterRows = [100, 140, 180, 220, 260];
+const letterRows = [200, 240, 280, 320, 360];
 
 class Letter {
   constructor() {
@@ -34,7 +34,8 @@ class Letter {
     this.y += 2;
 
     // Draw the letter to the screen
-    fill("red");
+    fill("green");
+    textFont("Consolas");
     textSize(fontsize);
     text(this.randomLetter, this.x, this.y);
   }

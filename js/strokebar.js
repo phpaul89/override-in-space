@@ -1,9 +1,10 @@
 class Strokebar {
   constructor() {
     this.height = 40;
-    this.width = 200;
-    this.x = 100;
+    this.width = 220;
+    this.x = 180;
     this.y = 600;
+    this.inputBox = 12;
   }
 
   checkCollision(letter) {
@@ -16,9 +17,39 @@ class Strokebar {
   }
 
   display() {
-    let barColor = color("green");
-    barColor.setAlpha(150);
+    fill("red");
+    textFont("Consolas");
+    textSize(16);
+    text("root", this.x - 160, this.y + 25);
+
+    fill("white");
+    textFont("Consolas");
+    textSize(14);
+    text("@", this.x - 120, this.y + 23);
+
+    fill("white");
+    textFont("Consolas");
+    textSize(16);
+    text("ship: ~ $", this.x - 106, this.y + 25);
+
+    let barColor = color("grey");
+    barColor.setAlpha(70);
     fill(barColor);
-    rect(this.x, this.y, this.width, this.height);
+    rect(this.x - 10, this.y, this.width, this.height);
+
+    if (frameCount % 6 == 0) {
+      this.inputBox--;
+    }
+
+    if (this.inputBox > 6) {
+      let inputBoxColor = color("green");
+      inputBoxColor.setAlpha(140);
+      fill(inputBoxColor);
+      rect(this.x - 10, this.y, 20, this.height);
+    }
+
+    if (this.inputBox == 0) {
+      this.inputBox = 12;
+    }
   }
 }
