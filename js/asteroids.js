@@ -1,6 +1,6 @@
 //pre-set
 const speed = [0.1, 1, 2, 3];
-const size = [120, 90, 60];
+const size = [140, 100, 60];
 
 //
 class Asteroid {

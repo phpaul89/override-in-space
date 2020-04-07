@@ -27,4 +27,4 @@ Oh, and when the warp drive needs to cool down, it seems that you have quite a k
 # Sources
 
 p5.js: http://p5js.org
-Asteroid: http://pixelartmaker.com/art/85a14111045a0dc
+image of asteroid: http://pixelartmaker.com/art/85a14111045a0dc

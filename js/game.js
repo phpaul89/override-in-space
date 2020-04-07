@@ -13,7 +13,7 @@ class Game {
     this.letterFlow = [new Letter()];
     this.randomFrameCount = Math.floor(Math.random() * 200) + 30;
     this.beams = [];
-    this.asteroids = [new Asteroid(), new Asteroid()];
+    this.asteroids = [new Asteroid(), new Asteroid(), new Asteroid()];
   }
 
   // init() {
@@ -115,7 +115,8 @@ class Game {
       uInterface.displayShooter();
     } else {
       // layer: background
-      background(0);
+      //background(0);
+      background.displayFlow();
 
       // layer: strokebar, letters
       strokebar.display();

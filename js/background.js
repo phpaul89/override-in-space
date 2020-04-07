@@ -8,6 +8,10 @@ class Background {
     // ];
     this.imgsShooter;
     this.imgsFlow;
+    this.yStarsWhite = 0;
+    this.yStarsRed = 0;
+    this.warpWhite;
+    this.warpRed;
   }
 
   move(img) {
@@ -15,17 +19,36 @@ class Background {
 
     // image(we get the source of image, x coordinate, y coordinate )
     image(img.src, 0, img.y);
-    //image(img.src, 0, img.y + height);
     if (img.y <= -height) {
       img.y = 0;
     }
   }
 
   displayShooter() {
-    this.imgs.forEach((image) => {
+    this.imgsShooter.forEach((image) => {
       this.move(image);
     });
   }
 
-  displayFlow() {}
+  displayFlow() {
+    /*this.imgsShooter.forEach((image) => {
+        this.move(image);
+      });*/
+
+    //this.yStarsRed++;
+    //this.yStarsWhite++;
+
+    image(this.imgsFlow, 0, 0);
+
+    // gif works, but drags performance too much
+    // tint(255, 50);
+    // image(background.warp, 0, 0);
+
+    //image(background.warpRed, 0, this.yStarsRed);
+    //image(background.warpWhite, 0, this.yStarsWhite);
+
+    /*this.yStarsWhite++;
+
+    image(background.stars, 0, this.yStars);*/
+  }
 }
