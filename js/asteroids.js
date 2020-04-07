@@ -1,6 +1,6 @@
 //pre-set
 const speed = [0.1, 1, 2, 3];
-const size = [30, 60, 90, 120];
+const size = [120, 90, 60, 30];
 
 //
 class Asteroid {
@@ -15,7 +15,13 @@ class Asteroid {
     this.height = size[Math.floor(Math.random() * size.length)];
     this.width = size[Math.floor(Math.random() * size.length)];
     this.img;
-    this.health = 5;
+    this.health = calculateHealthAsteroid(
+      this.speedX,
+      this.speedY,
+      this.height,
+      this.width
+    );
+    this.points = this.health;
     this.boom = false;
   }
 
@@ -37,6 +43,7 @@ class Asteroid {
       if (this.health <= 0) {
         // asteroid exploded
         this.boom = true;
+        uInterface.score += this.points;
 
         if (game.asteroids.length < 10) {
           game.asteroids.push(new Asteroid());
@@ -62,7 +69,26 @@ class Asteroid {
     this.x += this.speedX * this.plusOrMinus;
     this.y += this.speedY * this.plusOrMinus;
 
+    //console.log(this.points);
+
     fill("grey");
     rect(this.x, this.y, this.width, this.height);
   }
+}
+
+/* additional functions*/
+
+function calculateHealthAsteroid(speedX, speedY, height, width) {
+  // +1 becaue of zero-indexing
+  let speedPoints = speed.indexOf(speedX) + speed.indexOf(speedY) + 1;
+  let sizePoints = size.indexOf(height) + size.indexOf(width) + 1;
+
+  //   console.log(speedPoints);
+  //   console.log(sizePoints);
+
+  let pointsTotal = speedPoints * sizePoints;
+
+  //console.log(pointsTotal);
+
+  return pointsTotal;
 }

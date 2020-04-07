@@ -1,5 +1,6 @@
 // pre-set variables
 const game = new Game();
+
 let strokeStatus = true;
 
 //
@@ -22,8 +23,6 @@ function setup() {
 
   console.log("setup");
 
-  //console.log(randomLetter);
-
   createCanvas(800, 800);
 }
 
@@ -34,33 +33,19 @@ function draw() {
 }
 
 function keyPressed() {
-  /*
-  let spaceBarCode = 32;
-  let letterACode = 65;
-  let letterDCode = 68;
-  let letterWCode = 87;
-  let letterSCode = 83;
-  */
-
   if (keyCode === 32) {
-    //console.log("test");
     player.shoot();
   }
 
-  /* TO BE IMPLEMENTED:
-  FUNCTION TO CHECK IF strokeAble == true
-  IF NOT -> -POINTS
-  IF YES:*/
-
   game.letterFlow.forEach((letter) => {
     let randomLetterCode = letter.randomLetter.charCodeAt(0);
-    //console.log(randomLetterCode);
 
     if (letter.strokeAble == true) {
       // compare keyboard keycode input to keycode of random letter
       if (keyCode === randomLetterCode) {
         console.log("Haha yes!"); // if true
         letter.gotcha = true;
+        uInterface.score++;
       }
     }
   });
