@@ -4,7 +4,7 @@ class Player {
   constructor() {
     this.x = 400;
     this.y = 400;
-    this.heigth = 30;
+    this.height = 30;
     this.width = 30;
     this.direction = "N";
     this.img;
@@ -19,7 +19,7 @@ class Player {
   }
 
   display() {
-    image(this.img, this.x, this.y, this.heigth, this.width);
+    image(this.img, this.x, this.y, this.height, this.width);
   }
 
   shoot() {
