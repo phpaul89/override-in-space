@@ -27,6 +27,11 @@ class Background {
 
   displayLoadingScreen() {
     //console.log("background -> display loading screen");
+    // tint(255, frameCount);
+    // translate(width / 2, height / 2);
+    // rotate((PI / 180) * 45);
+    // imageMode(CENTER);
+
     image(this.imgStart, 0, 0);
 
     if (frameCount % 6 == 0) {

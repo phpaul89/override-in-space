@@ -110,6 +110,8 @@ class Game {
       });
     }
 
+    // timeout or framecount until explosion animation finished:
+    // before timeout -> change image of asteroid, set image to explosion image, then filter
     this.asteroids = this.asteroids.filter(
       (asteroid) => asteroid.boom == false
     );

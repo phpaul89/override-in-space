@@ -1,6 +1,6 @@
 //pre-set
 const speed = [0.1, 1, 2, 3];
-const size = [140, 100, 60];
+const size = [60, 100, 140];
 
 //
 class Asteroid {
@@ -71,6 +71,9 @@ class Asteroid {
 
     // rotation:
     /***********/
+    // translate(width / 2, height / 2);
+    // rotate((PI / 180) * 45);
+    // imageMode(CENTER);
 
     image(asteroid.img, this.x, this.y, this.width, this.height);
   }
@@ -79,10 +82,12 @@ class Asteroid {
 /* additional functions*/
 
 function calculateHealthAsteroid(speedX, speedY, height, width) {
-  // +1 becaue of zero-indexing
-  let speedPoints = speed.indexOf(speedX) + speed.indexOf(speedY) + 1;
-  let sizePoints = size.indexOf(height) + size.indexOf(width) + 1;
-  let pointsTotal = Math.floor((speedPoints * sizePoints) / 2);
+  // +1 because of zero-indexing
+  let speedPoints =
+    Math.floor(speed.indexOf(speedX) + speed.indexOf(speedY) + 1) / 2;
+  let sizePoints =
+    Math.floor(size.indexOf(height) + size.indexOf(width) + 1) * 2;
+  let pointsTotal = speedPoints + sizePoints;
 
   return pointsTotal;
 }

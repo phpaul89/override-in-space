@@ -38,8 +38,8 @@ class Letter {
     textFont("Arial Black");
     //textStyle(BOLD);
     textSize(fontsize);
-    strokeWeight(2);
-    stroke(0);
+    // strokeWeight(2);
+    // stroke(0);
     text(this.randomLetter, this.x, this.y);
   }
 }

@@ -1,6 +1,6 @@
 // pre-set variables
 const game = new Game();
-let gameEvent = 3; // 0: loading screen, 1: main game, 2: game over screen
+let gameEvent = 0; // 0: loading screen, 1: main game, 2: game over screen
 
 let strokeStatus = true;
 
@@ -60,6 +60,7 @@ function draw() {
   }
   if (gameEvent == 1) {
     clear();
+    //game.asteroids = [];
     game.displayShooter();
   }
 
