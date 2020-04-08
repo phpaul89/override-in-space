@@ -16,7 +16,8 @@ The game implements a guitar-hero-like feature for players with fast reflexes in
 
 # Story
 
-"The player is on board the USS Threepwood, a rusty bucket of a space ship. It is fully functional ... well, some reeeally minor hickups aside. Like ... the warp drive stutters from time to time coming from some defective code, which you have to manually override while listening to some guitar solos if you don't want this thing to explode. This might be bad, because ... you know: you - are - in - space!
+"The player is on board the USS Threepwood, a rusty bucket of a space ship. It is fully functional ... well, some reeeally minor hickups aside. Like ... the warp drive stutters from time to time coming from some defective code, which you have to manually override while listening to some guitar solos if you don't want this thing to explode.\
+This might be bad, because ... you know: you - are - in - space!
 
 Oh, and when the warp drive needs to cool down, it seems that you have quite a knack for navigating into the next dangerous asteroid belt around. Better keep shooting!"
 
@@ -32,3 +33,6 @@ images:
 - asteroids: http://pixelartmaker.com/art/85a14111045a0dc & https://wenrexa.itch.io/asteroidsn1
 - background: https://dinvstudio.itch.io/dynamic-space-background-lite-free
 - space ship: https://www.mattkeeter.com/projects/pixelsim/
+- loading screen: https://wallhaven.cc/w/nkoqkm (pixelized via onlinepngtools.com/pixelate-png)
+- game over screen: https://wallhaven.cc/w/j8eyw5
+- terminal: https://noirlac.tumblr.com/post/77577620553

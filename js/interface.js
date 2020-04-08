@@ -30,7 +30,11 @@ class UInterface {
     if (this.score > 10) {
       console.log("Next Phase");
       this.score = 0;
-      gameSwitch = false;
+      gameEvent = 2;
+    }
+
+    if (player.shield <= 0) {
+      gameEvent = 3;
     }
   }
 
@@ -48,7 +52,7 @@ class UInterface {
     if (this.score > 10) {
       console.log("Next Phase");
       this.score = 0;
-      gameSwitch = true;
+      gameEvent = 1;
     }
   }
 }

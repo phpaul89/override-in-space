@@ -33,7 +33,7 @@ class Strokebar {
     text("ship: ~ $", this.x - 106, this.y + 25);
 
     let barColor = color("grey");
-    barColor.setAlpha(70);
+    barColor.setAlpha(140);
     fill(barColor);
     rect(this.x - 10, this.y, this.width, this.height);
 

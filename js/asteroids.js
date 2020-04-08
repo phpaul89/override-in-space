@@ -14,17 +14,23 @@ class Asteroid {
     this.plusOrMinus = Math.random() < 0.5 ? -1 : 1;
     this.height = size[Math.floor(Math.random() * size.length)];
     this.width = size[Math.floor(Math.random() * size.length)];
-    this.img;
     this.health = calculateHealthAsteroid(
       this.speedX,
       this.speedY,
       this.height,
       this.width
     );
+    // this.imgPack;
+    // this.imgPosition = imgPack[Math.floor(Math.random() * imgPack.length)];
+    //this.img = loadImage(imgPack[imgPosition]);
     this.points = this.health;
     this.boom = false;
     this.angle = 0.0;
   }
+
+  //   pickSprite(){
+
+  //   }
 
   checkCollision(beam) {
     let topEdgeAsteroid = this.y;
@@ -66,11 +72,11 @@ class Asteroid {
     } else if (this.y < 0) {
       this.y = 800;
     }
-    // asteroid trajectory
+    // asteroid trajectory:
     this.x += this.speedX * this.plusOrMinus;
     this.y += this.speedY * this.plusOrMinus;
 
-    //console.log(this.points);
+    // rotation:
 
     // fill("grey");
     // rect(this.x, this.y, this.width, this.height);
