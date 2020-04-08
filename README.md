@@ -16,7 +16,7 @@ The game implements a guitar-hero-like feature for players with fast reflexes in
 
 # Story
 
-"The player is on board the USS Threepwood, a rusty bucket of a space ship, but fully functional ... well, some reeeally minor hickups aside. Like ... the warp drive stutters from time to time coming from some defective code, which you have to manually override while listening to some guitar solos if you don't want this thing to explode.
+"The player is on board the USS Threepwood, a rusty bucket of a space ship. It is fully functional ... well, some reeeally minor hickups aside. Like ... the warp drive stutters from time to time coming from some defective code, which you have to manually override while listening to some guitar solos if you don't want this thing to explode. This might be bad, because ... you know: you - are - in - space!
 
 Oh, and when the warp drive needs to cool down, it seems that you have quite a knack for navigating into the next dangerous asteroid belt around. Better keep shooting!"
 
