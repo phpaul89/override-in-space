@@ -7,8 +7,8 @@ This browser-game was made with the p5.js library for Javascript and was submitt
 A fully playable game should be developed from scratch in 4 days with p5.js.\
 Day 1: Idea generation and planning of game mechanics\
 Day 2: Development of core features\
-Day 3: Assembling the prototype and adjustment of code interplay\  
-Day 4: Styling and cleaning of code\
+Day 3: Assembling the prototype and adjustment of code interplay\
+Day 4: Styling and cleaning of code
 
 The game implements a guitar-hero-like feature for players with fast reflexes in a classical Space Shooter.
 
