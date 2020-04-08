@@ -4,15 +4,13 @@ class Background {
     this.imgTerminal;
     this.imgStart;
     this.imgOver;
-    this.yStarsWhite = 0;
-    this.yStarsRed = 0;
-    this.warpWhite;
-    this.warpRed;
     this.xTextOver = 442;
     this.yTextOver = 322;
     this.xTextLoad = 260;
     this.yTextLoad = 460;
     this.textAnimationCounter = 10;
+    this.alphaControl = 0;
+    this.inputBox = 12;
   }
 
   move(img) {
@@ -109,6 +107,60 @@ class Background {
     textFont(retroFont);
     textSize(16);
     text("Code: Hit Q W E C 7 8 or 9", 530, 780);
+  }
+
+  displayPhaseOut() {
+    //clear(); // clears background settings
+    // let c = color(0, 0, 0, this.alphaControl); // Define color 'c'
+    let c = color(0, this.alphaControl);
+    fill(c);
+    rect(0, 0, 800, 800);
+
+    // duration of phase out => 3 seconds, at 60 frames per second via 6 * 30 = 180 frames
+    if (frameCount % 6 == 0) {
+      this.alphaControl++;
+    }
+
+    if (this.alphaControl >= 30) {
+      // end phase out, start new event after duration, see above
+      gameEvent = 12;
+    }
+  }
+
+  displayIntro() {
+    fill("black");
+    rect(0, 0, 800, 800);
+
+    fill("white");
+    textFont(retroFont);
+    textSize(30);
+    text("Survive the asteroid belt!", 150, 370);
+
+    // if (frameCount % 6 == 0) {
+    //   this.inputBox--;
+    // }
+
+    // if (this.inputBox > 6) {
+    //   let inputBoxColor = color("white");
+    //   inputBoxColor.setAlpha(140);
+    //   fill(inputBoxColor);
+    //   rect(490, 344, 16, 30);
+    // }
+
+    // if (this.inputBox == 0) {
+    //   this.inputBox = 12;
+    // }
+
+    if (frameCount % 12 == 0) {
+      this.textAnimationCounter--;
+    }
+
+    if (this.textAnimationCounter <= 0) {
+      fill("white");
+      textFont(retroFont);
+      textSize(12);
+      text("(The warp drive is almost ready ...)", 260, 410);
+    }
   }
 
   displayOver() {

@@ -54,30 +54,36 @@ function draw() {
   // draw repeats execution until program is stopped
 
   if (gameEvent == 0) {
-    //mySound.play();
-    clear();
     game.loadingScreen();
   }
   if (gameEvent == 1) {
-    clear();
-    //game.asteroids = [];
     game.displayShooter();
   }
 
   if (gameEvent == 2) {
-    clear();
     game.displayFlow();
   }
 
   if (gameEvent == 3) {
-    clear();
     game.over();
+  }
+  if (gameEvent == 11) {
+    game.phaseOut();
+  }
+
+  if (gameEvent == 12) {
+    game.intro();
   }
 }
 
 function keyPressed() {
   if (gameEvent == 0 && keyCode === 13) {
-    gameEvent = 1;
+    // setTimeout(() => {
+    //   gameEvent = 1;
+    // }, 5000);
+    // console.log("Starting shooter in 5 seconds..");
+
+    gameEvent = 11;
   }
 
   if (keyCode === 32) {

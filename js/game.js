@@ -21,6 +21,14 @@ class Game {
     background.displayLoadingScreen();
   }
 
+  phaseOut() {
+    background.displayPhaseOut();
+  }
+
+  intro() {
+    background.displayIntro();
+  }
+
   over() {
     //console.log("Game Over");
     background.displayOver();
