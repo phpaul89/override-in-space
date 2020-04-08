@@ -20,17 +20,10 @@ class Asteroid {
       this.height,
       this.width
     );
-    // this.imgPack;
-    // this.imgPosition = imgPack[Math.floor(Math.random() * imgPack.length)];
-    //this.img = loadImage(imgPack[imgPosition]);
     this.points = this.health;
     this.boom = false;
-    this.angle = 0.0;
+    //this.angle = 0.0;
   }
-
-  //   pickSprite(){
-
-  //   }
 
   checkCollision(beam) {
     let topEdgeAsteroid = this.y;
@@ -77,9 +70,7 @@ class Asteroid {
     this.y += this.speedY * this.plusOrMinus;
 
     // rotation:
-
-    // fill("grey");
-    // rect(this.x, this.y, this.width, this.height);
+    /***********/
 
     image(asteroid.img, this.x, this.y, this.width, this.height);
   }
@@ -91,13 +82,7 @@ function calculateHealthAsteroid(speedX, speedY, height, width) {
   // +1 becaue of zero-indexing
   let speedPoints = speed.indexOf(speedX) + speed.indexOf(speedY) + 1;
   let sizePoints = size.indexOf(height) + size.indexOf(width) + 1;
-
-  //   console.log(speedPoints);
-  //   console.log(sizePoints);
-
-  let pointsTotal = speedPoints * sizePoints;
-
-  //console.log(pointsTotal);
+  let pointsTotal = Math.floor((speedPoints * sizePoints) / 2);
 
   return pointsTotal;
 }

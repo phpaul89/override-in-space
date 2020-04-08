@@ -1,11 +1,5 @@
 class Background {
   constructor() {
-    //this.img = loadImage("..");
-    // this.imgs = [
-    //   { src: loadImage("../img/nebula_pink.png"), x: 0, speed: 0 },
-    //   { src: loadImage("../img/stars_big_1.png"), x: 0, speed: 1 },
-    //   { src: loadImage("../img/stars_small1.png"), x: 0, speed: 2 },
-    // ];
     this.imgsShooter;
     this.imgTerminal;
     this.imgStart;
@@ -51,7 +45,7 @@ class Background {
       this.textAnimationCounter = 10;
     }
 
-    fill("grey");
+    fill("black");
     textFont(retroFont);
     textSize(20);
     text("Press ENTER to start", this.xTextLoad + 2, this.yTextLoad + 2);
@@ -79,29 +73,37 @@ class Background {
     fill("white");
     textFont(retroFont);
     textSize(11);
-    stroke(0);
-    strokeWeight(2);
     text("'Adventures on board the USS Threepwood'", 356, 110);
 
-    fill("white");
+    fill("black");
     textFont(retroFont);
     textSize(16);
-    text("Navigate: ARROW Keys", 290, 630);
+    text("Navigate: ARROW Keys", 22, 782);
 
     fill("white");
     textFont(retroFont);
     textSize(16);
-    text("Shoot: SPACEBAR", 290, 660);
+    text("Navigate: ARROW Keys", 20, 780);
+
+    fill("black");
+    textFont(retroFont);
+    textSize(16);
+    text("Shoot: SPACEBAR", 312, 782);
 
     fill("white");
     textFont(retroFont);
     textSize(16);
-    text("Code: Hit Q W E C 7 8 or 9", 290, 690);
+    text("Shoot: SPACEBAR", 310, 780);
+
+    fill("black");
+    textFont(retroFont);
+    textSize(16);
+    text("Code: Hit Q W E C 7 8 or 9", 532, 782);
 
     fill("white");
     textFont(retroFont);
     textSize(16);
-    text("at the right moment", 350, 710);
+    text("Code: Hit Q W E C 7 8 or 9", 530, 780);
   }
 
   displayOver() {

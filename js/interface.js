@@ -27,7 +27,7 @@ class UInterface {
     textSize(30);
     text(player.shield, 730, 41);
 
-    if (this.score > 10) {
+    if (this.score > 30) {
       console.log("Next Phase");
       this.score = 0;
       gameEvent = 2;
@@ -49,7 +49,7 @@ class UInterface {
     textSize(30);
     text(this.score, 130, 41);
 
-    if (this.score > 10) {
+    if (this.score > 5) {
       console.log("Next Phase");
       this.score = 0;
       gameEvent = 1;

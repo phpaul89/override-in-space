@@ -3,7 +3,7 @@ class Beam {
     this.x = player.x;
     this.y = player.y;
     this.direction = player.direction;
-    this.radius = 5;
+    this.radius = 7;
     this.power = 1;
   }
 

@@ -12,7 +12,7 @@ Day 4: Styling and cleaning of code
 
 The game implements a guitar-hero-like feature for players with fast reflexes in a classical Space Shooter.
 
-![Screenshot of game in action](https://raw.githubusercontent.com/phpaul89/override-in-space/master/img/preview_1.png)
+![Screenshot of game in action](https://raw.githubusercontent.com/phpaul89/override-in-space/master/img/preview_all.png)
 
 # Story
 
