@@ -1,7 +1,7 @@
 // pre-set variables
 const game = new Game();
-let gameEvent = 0; // 0: loading screen, 1: main game, 2: game over screen
-
+let gameEvent = 2; // 0: loading screen, 1: shooting game, 2: flow game, 3: game over screen,11: phase out, 12: intro, 13: phase in
+let gameStage = 2;
 let strokeStatus = true;
 
 //
@@ -39,6 +39,11 @@ function preload() {
   background.imgStart = loadImage("../img/loading-screen-pixelized.png");
   background.imgOver = loadImage("../img/game-over-screen.png");
   retroFont = loadFont("../css/RetroGaming.ttf");
+
+  beamSound = loadSound("../audio/laserbeam.mp3");
+
+  // song drags too much performance
+  // song = loadSound("../audio/bk-lnd.mp3");
 }
 
 function setup() {
@@ -47,6 +52,9 @@ function setup() {
 
   console.log("setup");
 
+  // song.loop();
+  // song.pause();
+
   createCanvas(800, 800);
 }
 
@@ -54,17 +62,22 @@ function draw() {
   // draw repeats execution until program is stopped
 
   if (gameEvent == 0) {
+    gameStage = 0;
     game.loadingScreen();
   }
   if (gameEvent == 1) {
+    gameStage = 1;
     game.displayShooter();
   }
 
   if (gameEvent == 2) {
+    // song.play();
+    gameStage = 2;
     game.displayFlow();
   }
 
   if (gameEvent == 3) {
+    gameStage = 3;
     game.over();
   }
   if (gameEvent == 11) {
@@ -73,6 +86,11 @@ function draw() {
 
   if (gameEvent == 12) {
     game.intro();
+  }
+
+  if (gameEvent == 13) {
+    clear();
+    game.phaseIn();
   }
 }
 
@@ -86,7 +104,8 @@ function keyPressed() {
     gameEvent = 11;
   }
 
-  if (keyCode === 32) {
+  if (gameEvent == 1 && keyCode === 32) {
+    beamSound.play();
     player.shoot();
   }
 

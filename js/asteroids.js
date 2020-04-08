@@ -87,7 +87,7 @@ function calculateHealthAsteroid(speedX, speedY, height, width) {
     Math.floor(speed.indexOf(speedX) + speed.indexOf(speedY) + 1) / 2;
   let sizePoints =
     Math.floor(size.indexOf(height) + size.indexOf(width) + 1) * 2;
-  let pointsTotal = speedPoints + sizePoints;
+  let pointsTotal = Math.floor(speedPoints + sizePoints);
 
   return pointsTotal;
 }

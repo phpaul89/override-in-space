@@ -29,6 +29,10 @@ class Game {
     background.displayIntro();
   }
 
+  phaseIn() {
+    background.displayPhaseIn();
+  }
+
   over() {
     //console.log("Game Over");
     background.displayOver();

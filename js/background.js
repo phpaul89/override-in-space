@@ -10,6 +10,7 @@ class Background {
     this.yTextLoad = 460;
     this.textAnimationCounter = 10;
     this.alphaControl = 0;
+    this.alphaMax = 255;
     this.inputBox = 12;
   }
 
@@ -110,8 +111,6 @@ class Background {
   }
 
   displayPhaseOut() {
-    //clear(); // clears background settings
-    // let c = color(0, 0, 0, this.alphaControl); // Define color 'c'
     let c = color(0, this.alphaControl);
     fill(c);
     rect(0, 0, 800, 800);
@@ -123,43 +122,111 @@ class Background {
 
     if (this.alphaControl >= 30) {
       // end phase out, start new event after duration, see above
+      this.alphaControl = 0;
       gameEvent = 12;
     }
   }
 
   displayIntro() {
-    fill("black");
-    rect(0, 0, 800, 800);
+    if (gameStage == 0) {
+      fill("black");
+      rect(0, 0, 800, 800);
 
-    fill("white");
-    textFont(retroFont);
-    textSize(30);
-    text("Survive the asteroid belt!", 150, 370);
-
-    // if (frameCount % 6 == 0) {
-    //   this.inputBox--;
-    // }
-
-    // if (this.inputBox > 6) {
-    //   let inputBoxColor = color("white");
-    //   inputBoxColor.setAlpha(140);
-    //   fill(inputBoxColor);
-    //   rect(490, 344, 16, 30);
-    // }
-
-    // if (this.inputBox == 0) {
-    //   this.inputBox = 12;
-    // }
-
-    if (frameCount % 12 == 0) {
-      this.textAnimationCounter--;
-    }
-
-    if (this.textAnimationCounter <= 0) {
       fill("white");
       textFont(retroFont);
-      textSize(12);
-      text("(The warp drive is almost ready ...)", 260, 410);
+      textSize(30);
+      text("Survive the asteroid belt!", 150, 370);
+
+      if (frameCount % 12 == 0) {
+        this.textAnimationCounter--;
+      }
+
+      if (this.textAnimationCounter <= 0) {
+        fill("white");
+        textFont(retroFont);
+        textSize(12);
+        text("(The warp drive is almost ready ...)", 260, 410);
+      }
+
+      setTimeout(() => {
+        this.textAnimationCounter = 10;
+        //console.log("phase in now");
+        gameEvent = 13;
+      }, 4500);
+    }
+
+    if (gameStage == 1) {
+      fill("black");
+      rect(0, 0, 800, 800);
+
+      fill("white");
+      textFont(retroFont);
+      textSize(30);
+      text("Override the warp systems!", 150, 370);
+
+      if (frameCount % 12 == 0) {
+        this.textAnimationCounter--;
+      }
+
+      if (this.textAnimationCounter <= 0) {
+        fill("white");
+        textFont(retroFont);
+        textSize(12);
+        text("(Be fast ...)", 260, 410);
+      }
+
+      setTimeout(() => {
+        this.textAnimationCounter = 10;
+        //console.log("phase in now");
+        gameEvent = 13;
+      }, 4500);
+    }
+
+    if (gameStage == 2) {
+      gameEvent = 13;
+    }
+  }
+
+  displayPhaseIn() {
+    if (gameStage == 0 || gameStage == 2) {
+      //image(this.imgsShooter[0].src, 0, 0);
+      this.imgsShooter.forEach((image) => {
+        this.move(image);
+      });
+
+      player.engage();
+
+      let c = color(0, this.alphaMax);
+      fill(c);
+      rect(0, 0, 800, 800);
+
+      // duration of phase in => 3 seconds, at 60 frames per second via 6 * 30 = 180 frames
+      if (frameCount % 2 == 0) {
+        this.alphaMax -= 2;
+      }
+
+      if (this.alphaMax <= 0) {
+        // end phase in, start new event after duration, see above
+        // next stage is set in displayTimer()
+        uInterface.displayTimer();
+      }
+    }
+
+    if (gameStage == 1) {
+      image(this.imgTerminal, 0, 0);
+      let c = color(0, this.alphaMax);
+      fill(c);
+      rect(0, 0, 800, 800);
+
+      // duration of phase in => 3 seconds, at 60 frames per second via 6 * 30 = 180 frames
+      if (frameCount % 2 == 0) {
+        this.alphaMax -= 2;
+      }
+
+      if (this.alphaMax <= 0) {
+        // next stage is set in displayTimer()
+        gameEvent = 2;
+      }
     }
   }
 
@@ -224,7 +291,7 @@ class Background {
   }
 
   displayFlow() {
-    // clear();
+    clear();
     // if (frameCount % 60 == 0) {
     //   tint(255, 255);
     // }

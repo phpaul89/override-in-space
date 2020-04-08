@@ -27,7 +27,7 @@ Oh, and when the warp drive needs to cool down, it seems that you have quite a k
 
 # Sources
 
-p5.js: http://p5js.org
+p5.js: http://p5js.org\
 images:
 
 - asteroids: http://pixelartmaker.com/art/85a14111045a0dc & https://wenrexa.itch.io/asteroidsn1
@@ -36,3 +36,7 @@ images:
 - loading screen: https://wallhaven.cc/w/nkoqkm (pixelized via onlinepngtools.com/pixelate-png)
 - game over screen: https://wallhaven.cc/w/j8eyw5
 - terminal: https://noirlac.tumblr.com/post/77577620553
+
+sounds:
+
+- laser gun: https://www.soundfishing.eu/sound/laser-gun
