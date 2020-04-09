@@ -102,12 +102,12 @@ class Background {
     fill("black");
     textFont(retroFont);
     textSize(16);
-    text("Code: Hit Q W E C 7 8 or 9", 532, 782);
+    text("Code: Hit Q W E 7 8 or 9", 546, 782);
 
     fill("white");
     textFont(retroFont);
     textSize(16);
-    text("Code: Hit Q W E C 7 8 or 9", 530, 780);
+    text("Code: Hit Q W E 7 8 or 9", 546, 780);
   }
 
   displayPhaseOut() {
@@ -123,12 +123,18 @@ class Background {
     if (this.alphaControl >= 30) {
       // end phase out, start new event after duration, see above
       this.alphaControl = 0;
-      gameEvent = 12;
+
+      if (gameStage == 0 && game.roundSwitch == true) {
+        game.roundSwitch = false;
+        gameEvent = 13;
+      } else {
+        gameEvent = 12;
+      }
     }
   }
 
   displayIntro() {
-    if (gameStage == 0) {
+    if (gameStage == 0 && game.roundSwitch == false) {
       fill("black");
       rect(0, 0, 800, 800);
 
@@ -152,10 +158,10 @@ class Background {
         this.textAnimationCounter = 10;
         //console.log("phase in now");
         gameEvent = 13;
-      }, 4500);
+      }, 5000);
     }
 
-    if (gameStage == 1) {
+    if (gameStage == 1 && game.roundSwitch == false) {
       fill("black");
       rect(0, 0, 800, 800);
 
@@ -172,23 +178,19 @@ class Background {
         fill("white");
         textFont(retroFont);
         textSize(12);
-        text("(Be fast ...)", 260, 410);
+        text("(Just use the famous QWE789 language  ...)", 250, 410);
       }
 
       setTimeout(() => {
         this.textAnimationCounter = 10;
         //console.log("phase in now");
         gameEvent = 13;
-      }, 4500);
-    }
-
-    if (gameStage == 2) {
-      gameEvent = 13;
+      }, 5000);
     }
   }
 
   displayPhaseIn() {
-    if (gameStage == 0 || gameStage == 2) {
+    if (gameStage == 0 && game.roundSwitch == false) {
       //image(this.imgsShooter[0].src, 0, 0);
       this.imgsShooter.forEach((image) => {
         this.move(image);
@@ -212,7 +214,7 @@ class Background {
       }
     }
 
-    if (gameStage == 1) {
+    if (gameStage == 1 && game.roundSwitch == false) {
       image(this.imgTerminal, 0, 0);
       let c = color(0, this.alphaMax);
       fill(c);
@@ -228,6 +230,29 @@ class Background {
         gameEvent = 2;
       }
     }
+
+    // if (gameStage == 2) {
+    //   //image(this.imgsShooter[0].src, 0, 0);
+    //   this.imgsShooter.forEach((image) => {
+    //     this.move(image);
+    //   });
+
+    //   player.engage();
+
+    //   let c = color(0, this.alphaMax);
+    //   fill(c);
+    //   rect(0, 0, 800, 800);
+
+    //   // duration of phase in => 3 seconds, at 60 frames per second via 6 * 30 = 180 frames
+    //   if (frameCount % 2 == 0) {
+    //     this.alphaMax -= 2;
+    //   }
+
+    //   if (this.alphaMax <= 0) {
+    //     // end phase in, start new event after duration, see above
+    //     // next stage is set in displayTimer()
+    //     gameEvent = 1;
+    //   }
   }
 
   displayOver() {
@@ -292,14 +317,6 @@ class Background {
 
   displayFlow() {
     clear();
-    // if (frameCount % 60 == 0) {
-    //   tint(255, 255);
-    // }
-
     image(this.imgTerminal, 0, 0);
-
-    // gif works, but drags performance too much
-    // tint(255, 25);
-    // image(background.warp, 0, 0);
   }
 }

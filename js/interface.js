@@ -1,6 +1,7 @@
 class UInterface {
   constructor() {
-    this.score = 0;
+    this.scoreShooter = 0;
+    this.scoreFlow = 0;
     this.timer = 5;
   }
 
@@ -26,10 +27,14 @@ class UInterface {
         gameEvent = 1;
       }
 
-      if (gameStage == 2) {
-        background.alphaMax = 255;
-        gameEvent = 1;
-      }
+      // if (gameStage == 2) {
+      //   background.alphaMax = 255;
+
+      //   setTimeout(() => {
+      //     gameEvent = 11;
+      //     gameStage = 0;
+      //   }, 6000);
+      // }
     }
   }
 
@@ -42,7 +47,7 @@ class UInterface {
     fill("white");
     textFont("Consolas");
     textSize(30);
-    text(this.score, 130, 41);
+    text(this.scoreShooter, 130, 41);
 
     fill("white");
     textFont("Consolas");
@@ -53,16 +58,6 @@ class UInterface {
     textFont("Consolas");
     textSize(30);
     text(player.shield, 730, 41);
-
-    if (this.score > 10) {
-      console.log("Next Phase");
-      this.score = 0;
-      gameEvent = 11;
-    }
-
-    if (player.shield <= 0) {
-      gameEvent = 3;
-    }
   }
 
   displayFlow() {
@@ -74,12 +69,20 @@ class UInterface {
     fill("white");
     textFont("Consolas");
     textSize(30);
-    text(this.score, 130, 41);
+    text(this.scoreFlow, 130, 41);
 
-    if (this.score > 5) {
-      console.log("Next Phase");
-      this.score = 0;
-      gameEvent = 11;
-    }
+    // dev mode - on hold:
+
+    // if (this.scoreFlow > 5) {
+    //   console.log("Faster now");
+    //   //   game.flowLevel = 1;
+    // }
+
+    // exit Flow Mode:
+    // if (this.scoreFlow > 5) {
+    //   console.log("Next Phase");
+    //   this.scoreFlow = 0;
+    //   gameEvent = 11;
+    // }
   }
 }

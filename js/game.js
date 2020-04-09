@@ -11,7 +11,11 @@ let gameSwitch = true;
 class Game {
   constructor() {
     this.letterFlow = [new Letter()];
-    this.randomFrameCount = Math.floor(Math.random() * 200) + 30;
+    //this.randomFrameCount = Math.floor(Math.random() * 200) + 30;
+    this.letterSpawnRate = [90, 45, 30, 20];
+    this.flowLevel = 0;
+    this.letterSpeed = 2;
+    this.roundSwitch = false;
     this.beams = [];
     this.asteroids = [new Asteroid(), new Asteroid(), new Asteroid()];
   }
@@ -148,11 +152,38 @@ class Game {
     });
 
     /* letterflow input 1/2, check letter.js for 2/2 */
-    if (
-      frameCount % this.randomFrameCount === 0 &&
-      game.letterFlow.length < 10
-    ) {
-      this.letterFlow.push(new Letter());
+    if (uInterface.scoreFlow <= 5) {
+      if (
+        frameCount % this.letterSpawnRate[0] === 0 &&
+        this.letterFlow.length < 5
+      ) {
+        this.letterFlow.push(new Letter());
+      }
+    }
+
+    if (uInterface.scoreFlow > 5 && uInterface.scoreFlow <= 15) {
+      if (
+        frameCount % this.letterSpawnRate[1] === 0 &&
+        this.letterFlow.length < 10
+      ) {
+        this.letterFlow.push(new Letter());
+      }
+    }
+
+    if (uInterface.scoreFlow > 15 && uInterface.scoreFlow <= 25) {
+      if (
+        frameCount % this.letterSpawnRate[2] === 0 &&
+        this.letterFlow.length < 10
+      ) {
+        this.letterFlow.push(new Letter());
+      }
+    }
+
+    if (uInterface.scoreFlow > 25) {
+      // roundSwitch = true to skip intro text when restarting Shooter Mode
+      game.roundSwitch = true;
+      gameStage = 0;
+      gameEvent = 11;
     }
 
     /* letterflow control, check main.js */

@@ -1,12 +1,13 @@
 // pre-set variables
 const game = new Game();
-let gameEvent = 2; // 0: loading screen, 1: shooting game, 2: flow game, 3: game over screen,11: phase out, 12: intro, 13: phase in
-let gameStage = 2;
+let gameEvent = 0; // 0: loading screen, 1: shooting game, 2: flow game, 3: game over screen,11: phase out, 12: intro, 13: phase in
+let gameStage = 0;
 let strokeStatus = true;
 
 //
 function preload() {
-  console.log("preload");
+  // preload executes 1x at the beginning
+
   player.imgUp = loadImage("../img/spaceship_up.png");
   player.imgDown = loadImage("../img/spaceship_down.png");
   player.imgLeft = loadImage("../img/spaceship_left.png");
@@ -17,15 +18,6 @@ function preload() {
   player.imgDownRight = loadImage("../img/spaceship_downright.png");
   player.img = player.imgUp;
   asteroid.img = loadImage("../img/asteroids/asteroid.png");
-
-  // asteroid.imgPack = [
-  //   { src: loadImage("../img/asteroids/01.png") },
-  //   { src: loadImage("../img/asteroids/03.png") },
-  //   { src: loadImage("../img/asteroids/04.png") },
-  //   { src: loadImage("../img/asteroids/06.png") },
-  //   { src: loadImage("../img/asteroids/07.png") },
-  //   { src: loadImage("../img/asteroids/08.png") },
-  // ];
 
   // parallax effect in Shooting phase:
   background.imgsShooter = [
@@ -47,10 +39,7 @@ function preload() {
 }
 
 function setup() {
-  // setup happens after preload
-  // setup everything you want to happen before the draw
-
-  console.log("setup");
+  // setup executes 1x  after preload, before draw()
 
   // song.loop();
   // song.pause();
@@ -92,15 +81,20 @@ function draw() {
     clear();
     game.phaseIn();
   }
+
+  if (uInterface.scoreShooter > 10) {
+    //console.log("Next Phase");
+    uInterface.scoreShooter = 0;
+    gameEvent = 11;
+  }
+
+  if (player.shield <= 0) {
+    gameEvent = 3;
+  }
 }
 
 function keyPressed() {
   if (gameEvent == 0 && keyCode === 13) {
-    // setTimeout(() => {
-    //   gameEvent = 1;
-    // }, 5000);
-    // console.log("Starting shooter in 5 seconds..");
-
     gameEvent = 11;
   }
 
@@ -121,7 +115,7 @@ function keyPressed() {
       if (keyCode === randomLetterCode) {
         console.log("Haha yes!"); // if true
         letter.gotcha = true;
-        uInterface.score++;
+        uInterface.scoreFlow++;
       }
     }
   });
