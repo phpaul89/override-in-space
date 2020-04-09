@@ -99,6 +99,7 @@ function keyPressed() {
     uInterface.scoreFlow = 0;
     uInterface.score = 0;
     player.shield = 100;
+    player.energy = 100;
     player.img = player.imgUp;
     game.roundSwitch = true;
     gameStage = 0;

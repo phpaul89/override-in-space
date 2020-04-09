@@ -160,7 +160,8 @@ class Game {
     if (player.shield <= 0) {
       // phase out, in
       console.log(uInterface.score);
-      gameEvent = 3;
+      gameStage = 3;
+      gameEvent = 11;
     }
   }
 
@@ -254,7 +255,8 @@ class Game {
     if (player.energy <= 0) {
       // phase out, in
       console.log(uInterface.score);
-      gameEvent = 3;
+      gameStage = 3;
+      gameEvent = 11;
     }
   }
 }

@@ -124,14 +124,13 @@ class Background {
       // end phase out, start new event after duration, see above
       this.alphaControl = 0;
 
-      if (
-        (gameStage == 0 || gameStage == 1 || gameStage == 3) &&
-        game.roundSwitch == true
-      ) {
+      if ((gameStage == 0 || gameStage == 1) && game.roundSwitch == true) {
         console.log("skipping intro");
         console.log(gameStage, gameEvent);
         //game.roundSwitch = false;
         gameEvent = 13;
+      } else if (gameStage == 3) {
+        gameEvent = 3;
       } else {
         gameEvent = 12;
       }
