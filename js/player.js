@@ -7,8 +7,8 @@ class Player {
     this.height = 30;
     this.width = 30;
     this.direction = "N";
-    this.life = 1;
     this.shield = 100;
+    this.energy = 100;
     this.xEngage = 385;
     this.yEngage = 700;
     this.img;

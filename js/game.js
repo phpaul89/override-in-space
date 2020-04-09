@@ -5,6 +5,7 @@ const asteroid = new Asteroid();
 const uInterface = new UInterface();
 const background = new Background();
 let gameSwitch = true;
+let m = 0;
 
 //
 
@@ -120,7 +121,11 @@ class Game {
             // console.log("Hit");
 
             // beam should use up his power if asteroid is hit
-            beam.power--;
+            if (this.roundSwitch == false) {
+              beam.power--;
+            } else if (this.roundSwitch == true) {
+              beam.power -= 2;
+            }
           }
         });
       });
@@ -134,8 +139,29 @@ class Game {
 
     this.asteroids.forEach((asteroid) => player.checkCollision(asteroid) == 2);
 
+    if (this.roundSwitch == true && frameCount % 300 === 0) {
+      this.asteroids.push(new Asteroid());
+      console.log("new asteroid");
+    }
+
     // layer: interface
     uInterface.displayShooter();
+
+    if (uInterface.scoreShooter > 30) {
+      //console.log("Next Phase");
+      //uInterface.score += uInterface.scoreShooter;
+      uInterface.scoreShooter = 0;
+      uInterface.timer = 5;
+      this.letterFlow = [new Letter()];
+      gameEvent = 11;
+      return;
+    }
+
+    if (player.shield <= 0) {
+      // phase out, in
+      console.log(uInterface.score);
+      gameEvent = 3;
+    }
   }
 
   displayFlow() {
@@ -150,41 +176,6 @@ class Game {
     this.letterFlow.forEach((letter) => {
       letter.display();
     });
-
-    /* letterflow input 1/2, check letter.js for 2/2 */
-    if (uInterface.scoreFlow <= 5) {
-      if (
-        frameCount % this.letterSpawnRate[0] === 0 &&
-        this.letterFlow.length < 5
-      ) {
-        this.letterFlow.push(new Letter());
-      }
-    }
-
-    if (uInterface.scoreFlow > 5 && uInterface.scoreFlow <= 15) {
-      if (
-        frameCount % this.letterSpawnRate[1] === 0 &&
-        this.letterFlow.length < 10
-      ) {
-        this.letterFlow.push(new Letter());
-      }
-    }
-
-    if (uInterface.scoreFlow > 15 && uInterface.scoreFlow <= 25) {
-      if (
-        frameCount % this.letterSpawnRate[2] === 0 &&
-        this.letterFlow.length < 10
-      ) {
-        this.letterFlow.push(new Letter());
-      }
-    }
-
-    if (uInterface.scoreFlow > 25) {
-      // roundSwitch = true to skip intro text when restarting Shooter Mode
-      game.roundSwitch = true;
-      gameStage = 0;
-      gameEvent = 11;
-    }
 
     /* letterflow control, check main.js */
     this.letterFlow.forEach((letter) => {
@@ -204,6 +195,67 @@ class Game {
     );
 
     uInterface.displayFlow();
+
+    /* letterflow input 1/2, check letter.js for 2/2 */
+
+    if (this.roundSwitch == false) {
+      m = 0;
+    } else {
+      m = 1;
+    }
+
+    if (uInterface.scoreFlow <= 5) {
+      if (
+        frameCount % this.letterSpawnRate[0 + m] === 0 &&
+        this.letterFlow.length < 5
+      ) {
+        this.letterFlow.push(new Letter());
+      }
+    }
+
+    if (uInterface.scoreFlow > 5 && uInterface.scoreFlow <= 15) {
+      if (
+        frameCount % this.letterSpawnRate[1 + m] === 0 &&
+        this.letterFlow.length < 10
+      ) {
+        this.letterFlow.push(new Letter());
+      }
+    }
+
+    if (uInterface.scoreFlow > 15 && uInterface.scoreFlow <= 35 + m * 20) {
+      if (
+        frameCount % this.letterSpawnRate[2 + m] === 0 &&
+        this.letterFlow.length < 10
+      ) {
+        this.letterFlow.push(new Letter());
+      }
+    }
+
+    if (uInterface.scoreFlow > 35 + m * 20) {
+      // roundSwitch = true to skip intro text when restarting Shooter Mode
+      game.roundSwitch = true;
+      //uInterface.score += uInterface.scoreFlow;
+      uInterface.scoreFlow = 0;
+      uInterface.timer = 5;
+      this.asteroids = [
+        new Asteroid(),
+        new Asteroid(),
+        new Asteroid(),
+        new Asteroid(),
+      ];
+      player.x = 385;
+      player.y = 400;
+      player.img = player.imgUp;
+      gameStage = 0;
+      gameEvent = 11;
+      return;
+    }
+
+    if (player.energy <= 0) {
+      // phase out, in
+      console.log(uInterface.score);
+      gameEvent = 3;
+    }
   }
 }
 

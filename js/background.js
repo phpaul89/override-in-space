@@ -124,8 +124,13 @@ class Background {
       // end phase out, start new event after duration, see above
       this.alphaControl = 0;
 
-      if (gameStage == 0 && game.roundSwitch == true) {
-        game.roundSwitch = false;
+      if (
+        (gameStage == 0 || gameStage == 1 || gameStage == 3) &&
+        game.roundSwitch == true
+      ) {
+        console.log("skipping intro");
+        console.log(gameStage, gameEvent);
+        //game.roundSwitch = false;
         gameEvent = 13;
       } else {
         gameEvent = 12;
@@ -190,7 +195,8 @@ class Background {
   }
 
   displayPhaseIn() {
-    if (gameStage == 0 && game.roundSwitch == false) {
+    if (gameStage == 0 || gameStage == 3) {
+      // && game.roundSwitch == false) {
       //image(this.imgsShooter[0].src, 0, 0);
       this.imgsShooter.forEach((image) => {
         this.move(image);
@@ -214,7 +220,8 @@ class Background {
       }
     }
 
-    if (gameStage == 1 && game.roundSwitch == false) {
+    if (gameStage == 1) {
+      // && game.roundSwitch == false) {
       image(this.imgTerminal, 0, 0);
       let c = color(0, this.alphaMax);
       fill(c);
@@ -231,7 +238,7 @@ class Background {
       }
     }
 
-    // if (gameStage == 2) {
+    // if (gameStage == 0 && game.roundSwitch == true) {
     //   //image(this.imgsShooter[0].src, 0, 0);
     //   this.imgsShooter.forEach((image) => {
     //     this.move(image);
@@ -251,7 +258,24 @@ class Background {
     //   if (this.alphaMax <= 0) {
     //     // end phase in, start new event after duration, see above
     //     // next stage is set in displayTimer()
-    //     gameEvent = 1;
+    //     uInterface.displayTimer();
+    //   }
+
+    //   if (gameStage == 1 && game.roundSwitch == true) {
+    //     image(this.imgTerminal, 0, 0);
+    //     let c = color(0, this.alphaMax);
+    //     fill(c);
+    //     rect(0, 0, 800, 800);
+
+    //     // duration of phase in => 3 seconds, at 60 frames per second via 6 * 30 = 180 frames
+    //     if (frameCount % 2 == 0) {
+    //       this.alphaMax -= 2;
+    //     }
+
+    //     if (this.alphaMax <= 0) {
+    //       // next stage is set in displayTimer()
+    //       gameEvent = 2;
+    //     }
     //   }
   }
 

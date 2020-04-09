@@ -42,3 +42,4 @@ images:
 sounds:
 
 - laser gun: https://www.soundfishing.eu/sound/laser-gun
+- explosion: http://soundbible.com/1234-Bomb.html

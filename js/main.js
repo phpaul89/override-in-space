@@ -1,7 +1,7 @@
 // pre-set variables
 const game = new Game();
-let gameEvent = 0; // 0: loading screen, 1: shooting game, 2: flow game, 3: game over screen,11: phase out, 12: intro, 13: phase in
-let gameStage = 0;
+let gameEvent = 2; // 0: loading screen, 1: shooting game, 2: flow game, 3: game over screen,11: phase out, 12: intro, 13: phase in
+let gameStage = 2;
 let strokeStatus = true;
 
 //
@@ -33,6 +33,7 @@ function preload() {
   retroFont = loadFont("../css/RetroGaming.ttf");
 
   beamSound = loadSound("../audio/laserbeam.mp3");
+  explosion = loadSound("../audio/explosion.mp3");
 
   // song drags too much performance
   // song = loadSound("../audio/bk-lnd.mp3");
@@ -81,16 +82,6 @@ function draw() {
     clear();
     game.phaseIn();
   }
-
-  if (uInterface.scoreShooter > 10) {
-    //console.log("Next Phase");
-    uInterface.scoreShooter = 0;
-    gameEvent = 11;
-  }
-
-  if (player.shield <= 0) {
-    gameEvent = 3;
-  }
 }
 
 function keyPressed() {
@@ -104,7 +95,14 @@ function keyPressed() {
   }
 
   if (gameEvent == 3 && keyCode === 13) {
-    gameEvent = 1;
+    uInterface.scoreShooter = 0;
+    uInterface.scoreFlow = 0;
+    uInterface.score = 0;
+    player.shield = 100;
+    player.img = player.imgUp;
+    game.roundSwitch = true;
+    gameStage = 0;
+    gameEvent = 13;
   }
 
   game.letterFlow.forEach((letter) => {
@@ -116,6 +114,7 @@ function keyPressed() {
         console.log("Haha yes!"); // if true
         letter.gotcha = true;
         uInterface.scoreFlow++;
+        uInterface.score++;
       }
     }
   });

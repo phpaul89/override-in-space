@@ -43,7 +43,9 @@ class Asteroid {
       if (this.health <= 0) {
         // asteroid exploded
         this.boom = true;
+        explosion.play();
         uInterface.scoreShooter += this.points;
+        uInterface.score += this.points;
 
         if (game.asteroids.length < 10) {
           game.asteroids.push(new Asteroid());

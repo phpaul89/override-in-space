@@ -2,8 +2,8 @@ class Strokebar {
   constructor() {
     this.height = 40;
     this.width = 260;
-    this.x = 180;
-    this.y = 600;
+    this.x = 270;
+    this.y = 640;
     this.inputBox = 12;
   }
 
