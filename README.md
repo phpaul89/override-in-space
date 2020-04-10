@@ -33,7 +33,7 @@ p5.js: http://p5js.org
 images:
 
 - asteroids: http://pixelartmaker.com/art/85a14111045a0dc & https://wenrexa.itch.io/asteroidsn1
-- background: https://dinvstudio.itch.io/dynamic-space-background-lite-free
+- background in-game: https://dinvstudio.itch.io/dynamic-space-background-lite-free
 - space ship: https://www.mattkeeter.com/projects/pixelsim/
 - loading screen: https://wallhaven.cc/w/nkoqkm (pixelized via onlinepngtools.com/pixelate-png)
 - game over screen: https://wallhaven.cc/w/j8eyw5

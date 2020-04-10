@@ -125,13 +125,14 @@ class Background {
       this.alphaControl = 0;
 
       if ((gameStage == 0 || gameStage == 1) && game.roundSwitch == true) {
-        console.log("skipping intro");
-        console.log(gameStage, gameEvent);
-        //game.roundSwitch = false;
+        // // dev:
+        // console.log("skipping intro");
+        // console.log(gameStage, gameEvent);
+        // //
         gameEvent = 13;
       } else if (gameStage == 3) {
         gameEvent = 3;
-      } else {
+      } else if (game.roundSwitch == false) {
         gameEvent = 12;
       }
     }
@@ -183,17 +184,25 @@ class Background {
         textFont(retroFont);
         textSize(12);
         text("(Just use the famous QWE789 language  ...)", 250, 410);
-      }
 
-      setTimeout(() => {
-        this.textAnimationCounter = 10;
-        //console.log("phase in now");
-        gameEvent = 13;
-      }, 5000);
+        setTimeout(() => {
+          this.textAnimationCounter = 10;
+          //console.log("phase in now");
+          gameEvent = 13;
+          return;
+        }, 5000);
+      }
     }
   }
 
   displayPhaseIn() {
+    console.log(gameStage, gameEvent);
+
+    if (gameStage == 2 && game.roundSwitch == false) {
+      gameEvent = 2;
+      return;
+    }
+
     if (gameStage == 0 || gameStage == 3) {
       // && game.roundSwitch == false) {
       //image(this.imgsShooter[0].src, 0, 0);
@@ -216,6 +225,7 @@ class Background {
         // end phase in, start new event after duration, see above
         // next stage is set in displayTimer()
         uInterface.displayTimer();
+        return;
       }
     }
 
@@ -233,49 +243,13 @@ class Background {
 
       if (this.alphaMax <= 0) {
         // next stage is set in displayTimer()
+        gameStage = 2;
         gameEvent = 2;
+
+        console.log(gameStage, gameEvent);
+        return;
       }
     }
-
-    // if (gameStage == 0 && game.roundSwitch == true) {
-    //   //image(this.imgsShooter[0].src, 0, 0);
-    //   this.imgsShooter.forEach((image) => {
-    //     this.move(image);
-    //   });
-
-    //   player.engage();
-
-    //   let c = color(0, this.alphaMax);
-    //   fill(c);
-    //   rect(0, 0, 800, 800);
-
-    //   // duration of phase in => 3 seconds, at 60 frames per second via 6 * 30 = 180 frames
-    //   if (frameCount % 2 == 0) {
-    //     this.alphaMax -= 2;
-    //   }
-
-    //   if (this.alphaMax <= 0) {
-    //     // end phase in, start new event after duration, see above
-    //     // next stage is set in displayTimer()
-    //     uInterface.displayTimer();
-    //   }
-
-    //   if (gameStage == 1 && game.roundSwitch == true) {
-    //     image(this.imgTerminal, 0, 0);
-    //     let c = color(0, this.alphaMax);
-    //     fill(c);
-    //     rect(0, 0, 800, 800);
-
-    //     // duration of phase in => 3 seconds, at 60 frames per second via 6 * 30 = 180 frames
-    //     if (frameCount % 2 == 0) {
-    //       this.alphaMax -= 2;
-    //     }
-
-    //     if (this.alphaMax <= 0) {
-    //       // next stage is set in displayTimer()
-    //       gameEvent = 2;
-    //     }
-    //   }
   }
 
   displayOver() {

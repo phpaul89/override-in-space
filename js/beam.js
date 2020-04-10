@@ -4,7 +4,7 @@ class Beam {
     this.y = player.y;
     this.direction = player.direction;
     this.radius = 7;
-    this.power = 1;
+    this.power = 2;
   }
 
   display() {

@@ -1,8 +1,8 @@
 // pre-set variables
 const game = new Game();
-let gameEvent = 2; // 0: loading screen, 1: shooting game, 2: flow game, 3: game over screen,11: phase out, 12: intro, 13: phase in
-let gameStage = 2;
-let strokeStatus = true;
+let gameEvent = 0; // 0: loading screen, 1: shooting game, 2: flow game, 3: game over screen,11: phase out, 12: intro, 13: phase in
+let gameStage = 0;
+let strokeStatus = false;
 
 //
 function preload() {

@@ -153,6 +153,7 @@ class Game {
       uInterface.scoreShooter = 0;
       uInterface.timer = 5;
       this.letterFlow = [new Letter()];
+      gameStage = 1;
       gameEvent = 11;
       return;
     }
