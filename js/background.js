@@ -196,11 +196,14 @@ class Background {
   }
 
   displayPhaseIn() {
-    console.log(gameStage, gameEvent);
+    console.log(gameStage, gameEvent, game.roundSwitch); // 2 13 <---
 
-    if (gameStage == 2 && game.roundSwitch == false) {
+    // black screen for 20-40 frames
+
+    if (gameStage == 2 && !game.roundSwitch) {
+      console.log("catch");
       gameEvent = 2;
-      return;
+      //return;
     }
 
     if (gameStage == 0 || gameStage == 3) {
@@ -243,6 +246,8 @@ class Background {
 
       if (this.alphaMax <= 0) {
         // next stage is set in displayTimer()
+        // this.alphaMax = 255;
+        // this.alphaControl = 0;
         gameStage = 2;
         gameEvent = 2;
 
@@ -323,7 +328,7 @@ class Background {
   }
 
   displayFlow() {
-    clear();
+    //clear();
     image(this.imgTerminal, 0, 0);
   }
 }

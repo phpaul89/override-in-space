@@ -11,7 +11,6 @@ class UInterface {
   }
 
   displayTimer() {
-    //console.log("Test message after 10s");
     fill("white");
     textFont(retroFont);
     textSize(60);
@@ -27,15 +26,6 @@ class UInterface {
         background.alphaMax = 255;
         gameEvent = 1;
       }
-
-      // if (gameStage == 2) {
-      //   background.alphaMax = 255;
-
-      //   setTimeout(() => {
-      //     gameEvent = 11;
-      //     gameStage = 0;
-      //   }, 6000);
-      // }
     }
   }
 
@@ -101,19 +91,5 @@ class UInterface {
     textFont("Consolas");
     textSize(30);
     text(player.energy, 730, 41);
-
-    // dev mode - on hold:
-
-    // if (this.scoreFlow > 5) {
-    //   console.log("Faster now");
-    //   //   game.flowLevel = 1;
-    // }
-
-    // exit Flow Mode:
-    // if (this.scoreFlow > 5) {
-    //   console.log("Next Phase");
-    //   this.scoreFlow = 0;
-    //   gameEvent = 11;
-    // }
   }
 }

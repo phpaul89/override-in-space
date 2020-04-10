@@ -24,7 +24,11 @@ Oh, and when the warp drive needs to cool down, it seems that you have quite a k
 
 # Instructions
 
-...
+1. Survive the asteroid belt in the first stage by navigating with the Arrow keys and shooting with the space
+
+2. Fix the broken warp drive by manually overriding the control systems with the keys: Q, W, E, 7, 8, 9
+
+3. Prepare for the next rounds, because the difficulty increases
 
 # Sources
 
