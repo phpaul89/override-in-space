@@ -34,6 +34,7 @@ function preload() {
 
   beamSound = loadSound("../audio/laserbeam.mp3");
   explosion = loadSound("../audio/explosion.mp3");
+  shipexplosion = loadSound("../audio/ship-explosion.mp3");
 
   // song drags too much performance
   // song = loadSound("../audio/bk-lnd.mp3");
@@ -95,15 +96,16 @@ function keyPressed() {
   }
 
   if (gameEvent == 3 && keyCode === 13) {
-    uInterface.scoreShooter = 0;
-    uInterface.scoreFlow = 0;
-    uInterface.score = 0;
-    player.shield = 100;
-    player.energy = 100;
-    player.img = player.imgUp;
-    game.roundSwitch = true;
-    gameStage = 0;
-    gameEvent = 13;
+    location.reload();
+    // uInterface.scoreShooter = 0;
+    // uInterface.scoreFlow = 0;
+    // uInterface.score = 0;
+    // player.shield = 100;
+    // player.energy = 100;
+    // player.img = player.imgUp;
+    // game.roundSwitch = true;
+    // gameStage = 0;
+    // gameEvent = 13;
   }
 
   game.letterFlow.forEach((letter) => {

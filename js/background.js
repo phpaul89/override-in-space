@@ -269,6 +269,16 @@ class Background {
     textSize(60);
     text("GAME OVER", 20, 60);
 
+    fill("red");
+    textFont("Consolas");
+    textSize(30);
+    text("Total:", 610, 40);
+
+    fill("red");
+    textFont("Consolas");
+    textSize(30);
+    text(uInterface.score, 720, 41);
+
     fill("grey");
     textFont(retroFont);
     textSize(20);
