@@ -8,35 +8,33 @@ let strokeStatus = false;
 function preload() {
   // preload executes 1x at the beginning
 
-  player.imgUp = loadImage("../assets/img/spaceship_up.png");
-  player.imgDown = loadImage("../assets/img/spaceship_down.png");
-  player.imgLeft = loadImage("../assets/img/spaceship_left.png");
-  player.imgRight = loadImage("../assets/img/spaceship_right.png");
-  player.imgUpLeft = loadImage("../assets/img/spaceship_upleft.png");
-  player.imgUpRight = loadImage("../assets/img/spaceship_upright.png");
-  player.imgDownLeft = loadImage("../assets/img/spaceship_downleft.png");
-  player.imgDownRight = loadImage("../assets/img/spaceship_downright.png");
+  player.imgUp = loadImage("assets/img/spaceship_up.png");
+  player.imgDown = loadImage("assets/img/spaceship_down.png");
+  player.imgLeft = loadImage("assets/img/spaceship_left.png");
+  player.imgRight = loadImage("assets/img/spaceship_right.png");
+  player.imgUpLeft = loadImage("assets/img/spaceship_upleft.png");
+  player.imgUpRight = loadImage("assets/img/spaceship_upright.png");
+  player.imgDownLeft = loadImage("assets/img/spaceship_downleft.png");
+  player.imgDownRight = loadImage("assets/img/spaceship_downright.png");
   player.img = player.imgUp;
-  asteroid.img = loadImage("../assets/img/asteroids/asteroid.png");
+  asteroid.img = loadImage("assets/img/asteroids/asteroid.png");
 
   // parallax effect in Shooting phase:
   background.imgsShooter = [
-    { src: loadImage("../assets/img/nebula_pink_2.png"), y: 0, speed: 0 },
-    { src: loadImage("../assets/img/stars_big_1.png"), y: 0, speed: 0.1 },
-    { src: loadImage("../assets/img/stars_small_1_1.png"), y: 0, speed: 0.4 },
+    { src: loadImage("assets/img/nebula_pink_2.png"), y: 0, speed: 0 },
+    { src: loadImage("assets/img/stars_big_1.png"), y: 0, speed: 0.1 },
+    { src: loadImage("assets/img/stars_small_1_1.png"), y: 0, speed: 0.4 },
   ];
 
   //static background in Flow phase:
-  background.imgTerminal = loadImage(
-    "../assets/img/terminal-ani-slow-dark.gif"
-  );
-  background.imgStart = loadImage("../assets/img/loading-screen-pixelized.png");
-  background.imgOver = loadImage("../assets/img/game-over-screen.png");
-  retroFont = loadFont("../RetroGaming.ttf");
+  background.imgTerminal = loadImage("assets/img/terminal-ani-slow-dark.gif");
+  background.imgStart = loadImage("assets/img/loading-screen-pixelized.png");
+  background.imgOver = loadImage("assets/img/game-over-screen.png");
+  retroFont = loadFont("RetroGaming.ttf");
 
-  beamSound = loadSound("../assets/audio/laserbeam.mp3");
-  explosion = loadSound("../assets/audio/explosion.mp3");
-  shipexplosion = loadSound("../assets/audio/ship-explosion.mp3");
+  beamSound = loadSound("assets/audio/laserbeam.mp3");
+  explosion = loadSound("assets/audio/explosion.mp3");
+  shipexplosion = loadSound("assets/audio/ship-explosion.mp3");
 
   // song drags too much performance
   // song = loadSound("../audio/bk-lnd.mp3");
