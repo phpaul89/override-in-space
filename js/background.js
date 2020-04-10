@@ -186,22 +186,24 @@ class Background {
         text("(Just use the famous QWE789 language  ...)", 250, 410);
 
         setTimeout(() => {
-          this.textAnimationCounter = 10;
           //console.log("phase in now");
-          gameEvent = 13;
-          return;
+          if (gameStage != 2 && gameEvent != 2) {
+            this.textAnimationCounter = 10;
+            gameEvent = 13;
+            return;
+          }
         }, 5000);
       }
     }
   }
 
   displayPhaseIn() {
-    console.log(gameStage, gameEvent, game.roundSwitch); // 2 13 <---
+    //console.log(gameStage, gameEvent, game.roundSwitch); // 2 13 <---
 
     // black screen for 20-40 frames
 
     if (gameStage == 2 && !game.roundSwitch) {
-      console.log("catch");
+      //console.log("catch");
       gameEvent = 2;
       //return;
     }
